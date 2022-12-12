@@ -4,15 +4,16 @@ interface SquareProps {
     positionSquare: string;
     background?: string;
     image?: string;
+    onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Square = ({positionSquare, background, image} : SquareProps) => {
-     console.log(positionSquare)
+const Square = ({positionSquare, background, image, onClick} : SquareProps) => {
+
      const piece = PieceTheme.find(element => element.position === positionSquare)
      return (
-        <div className="border-2 border-black relative" style={{backgroundColor: background}}>
+        <button className="border-2 border-black relative" style={{backgroundColor: background}} onClick={onClick}>
             {piece && <img src={piece.image} className='absolute top-0' /> }
-        </div>
+        </button>
 
      )
 };

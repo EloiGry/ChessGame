@@ -22,35 +22,35 @@ export const PieceTheme : PiecesProps[] = [
         image : rook_w
     },
     {
-        position : "a2",
+        position : "b1",
         image : knight_w
     },
     {
-        position : "a3",
+        position : "c1",
         image : bishop_w
     },
     {
-        position : "a4",
+        position : "d1",
         image : queen_w
     },
     {
-        position : "a5",
+        position : "e1",
         image : king_w
     },
     {
-        position : "a6",
+        position : "f1",
         image : bishop_w
     },
     {
-        position : "a7",
+        position : "g1",
         image : knight_w
     },
     {
-        position : "a8",
+        position : "h1",
         image : rook_w
     },
     {
-        position : "b1",
+        position : "a2",
         image : pawn_w
     },
     {
@@ -58,55 +58,55 @@ export const PieceTheme : PiecesProps[] = [
         image : pawn_w
     },
     {
-        position : "b3",
+        position : "c2",
         image : pawn_w
     },
     {
-        position : "b4",
+        position : "d2",
         image : pawn_w
     },
     {
-        position : "b5",
+        position : "e2",
         image : pawn_w
     },
     {
-        position : "b6",
+        position : "f2",
         image : pawn_w
     },
     {
-        position : "b7",
+        position : "g2",
         image : pawn_w
-    },
-    {
-        position : "b8",
-        image : pawn_w
-    },
-    {
-        position : "h1",
-        image : rook_b
     },
     {
         position : "h2",
+        image : pawn_w
+    },
+    {
+        position : "a8",
+        image : rook_b
+    },
+    {
+        position : "b8",
         image : knight_b
     },
     {
-        position : "h3",
+        position : "c8",
         image : bishop_b
     },
     {
-        position : "h4",
+        position : "d8",
         image : queen_b
     },
     {
-        position : "h5",
+        position : "e8",
         image : king_b
     },
     {
-        position : "h6",
+        position : "f8",
         image : bishop_b
     },
     {
-        position : "h7",
+        position : "g8",
         image : knight_b
     },
     {
@@ -114,27 +114,27 @@ export const PieceTheme : PiecesProps[] = [
         image : rook_b
     },
     {
-        position : "g1",
+        position : "a7",
         image : pawn_b
     },
     {
-        position : "g2",
+        position : "b7",
         image : pawn_b
     },
     {
-        position : "g3",
+        position : "c7",
         image : pawn_b
     },
     {
-        position : "g4",
+        position : "d7",
         image : pawn_b
     },
     {
-        position : "g5",
+        position : "e7",
         image : pawn_b
     },
     {
-        position : "g6",
+        position : "f7",
         image : pawn_b
     },
     {
@@ -142,7 +142,7 @@ export const PieceTheme : PiecesProps[] = [
         image : pawn_b
     },
     {
-        position : "g8",
+        position : "h7",
         image : pawn_b
     }
 ]
