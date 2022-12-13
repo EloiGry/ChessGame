@@ -23,7 +23,6 @@ function App() {
         else {
           if(PieceTheme.some(e => e.position === actualPosition))
             setPosition(actualPosition) 
-            console.log("aP" ,actualPosition);    
         } 
      }
   return (
