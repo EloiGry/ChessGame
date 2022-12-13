@@ -1,6 +1,7 @@
 import Square from "./Square"
 import { useState } from "react";
 import { PawnMove } from "./PawnMove";
+import { PieceTheme } from "./PieceTheme";
 
 
 const Y_AXE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -16,10 +17,11 @@ function App() {
         
                
         if (position != null) {
-            await PawnMove(position)
+            await PawnMove(position, actualPosition)
             setPosition(null)
         }
         else {
+          if(PieceTheme.some(e => e.position === actualPosition))
             setPosition(actualPosition) 
             console.log("aP" ,actualPosition);    
         } 

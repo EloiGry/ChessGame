@@ -16,7 +16,7 @@ type PiecesProps = {
     image: any;
 }
 
-export const PieceTheme : PiecesProps[] = [
+export let PieceTheme : PiecesProps[] = [
     {
         position : "a1",
         image : rook_w
