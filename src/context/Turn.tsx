@@ -9,15 +9,12 @@ interface ContextProps {
 const TurnContext = createContext<any>({});
 
 const TurnContextProvider = ({children}: ContextProps)  => {
-    const [WhiteToPlay, setWhiteToPlay] = useState<Boolean>(true)
+    const [whiteToPlay, setWhiteToPlay] = useState<boolean>(true)
 
-    
     const value = {
-        WhiteToPlay,
+        whiteToPlay,
         setWhiteToPlay
     }
-
-    console.log("WhiteToPlay?", WhiteToPlay);
     
 
     return (
