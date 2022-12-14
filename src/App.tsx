@@ -1,7 +1,8 @@
 import Square from "./Square"
-import { useState } from "react";
-import { PawnMove } from "./PawnMove";
+import { useState, useContext } from "react";
+import { PawnMove_W, PawnMove_B } from "./PawnMove";
 import { PieceTheme } from "./PieceTheme";
+import { TurnContext } from "./context/Turn";
 
 
 const Y_AXE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -11,14 +12,20 @@ const X_AXE = ['1', '2', '3', '4', '5', '6', '7', '8']
 
 function App() {
   const [position, setPosition] = useState<string | null>(null)
+  const {whiteToPlay} = useContext(TurnContext)
 
   const handleClick = async (actualPosition : string) => { 
        console.log("POSITION" ,position);
         
                
         if (position != null) {
-            await PawnMove(position, actualPosition)
+          if (whiteToPlay) {
+            await PawnMove_W(position, actualPosition)
             setPosition(null)
+          } else {
+            await PawnMove_B(position, actualPosition)
+            setPosition(null)
+          }
         }
         else {
           if(PieceTheme.some(e => e.position === actualPosition))
