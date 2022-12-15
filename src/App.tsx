@@ -1,35 +1,44 @@
 import Square from "./Square"
 import { useState, useContext } from "react";
-import { PawnMove_W, PawnMove_B } from "./PawnMove";
 import { PieceTheme } from "./PieceTheme";
 import { TurnContext } from "./context/Turn";
+import { MovePiecesWhite } from "./MovePiecesWhite";
+import { MovePiecesBlack } from "./MovePiecesBlack";
 
 
 const Y_AXE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 const X_AXE = ['1', '2', '3', '4', '5', '6', '7', '8']
 
 
-
 function App() {
   const [position, setPosition] = useState<string | null>(null)
+  const [name, setName] = useState<string | null>(null)
   const {whiteToPlay} = useContext(TurnContext)
 
   const handleClick = async (actualPosition : string) => { 
        console.log("POSITION" ,position);
+       console.log("NAME", name);
+       
+
         
                
-        if (position != null) {
+        if (position != null && name != null) {
           if (whiteToPlay) {
-            await PawnMove_W(position, actualPosition)
+            await MovePiecesWhite(name, position, actualPosition)
             setPosition(null)
+            setName(null)
           } else {
-            await PawnMove_B(position, actualPosition)
+            await MovePiecesBlack(name, position, actualPosition)
             setPosition(null)
+            setName(null)
           }
         }
         else {
-          if(PieceTheme.some(e => e.position === actualPosition))
+          const find = PieceTheme.find(e => e.position === actualPosition)
+          if(find !== undefined) {
             setPosition(actualPosition) 
+            setName(find.name)
+          }
         } 
      }
   return (
