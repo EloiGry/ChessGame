@@ -1,3 +1,4 @@
+import { BishopMove } from "./BishopMove";
 import { KnightMove } from "./KnightMove";
 import { PawnMove_W } from "./PawnMove";
 
@@ -6,6 +7,8 @@ export async function MovePiecesWhite (name : string | undefined, position : str
         case 'pawnWhite': PawnMove_W(position, direction)
             break;
         case 'knightWhite': KnightMove(position, direction)
+            break;
+        case 'bishopWhite': BishopMove(position, direction)
             break;
         default:
             break;

@@ -15,13 +15,7 @@ function App() {
   const [name, setName] = useState<string | null>(null)
   const {whiteToPlay} = useContext(TurnContext)
 
-  const handleClick = async (actualPosition : string) => { 
-       console.log("POSITION" ,position);
-       console.log("NAME", name);
-       
-
-        
-               
+  const handleClick = async (actualPosition : string) => {     
         if (position != null && name != null) {
           if (whiteToPlay) {
             await MovePiecesWhite(name, position, actualPosition)
