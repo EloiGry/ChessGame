@@ -3,6 +3,7 @@ import { KnightMove } from "./KnightMove";
 import { BishopMove } from "./BishopMove";
 import { RookMove } from "./RookMove";
 import { QueenMove } from "./QueenMove";
+import { KingMove } from "./KingMove";
 
 export async function MovePiecesBlack(name: string | undefined, position: string, direction: string) {
     switch (name) {
@@ -15,6 +16,8 @@ export async function MovePiecesBlack(name: string | undefined, position: string
         case 'rookBlack': RookMove(position, direction)
             break;
         case 'queenBlack': QueenMove(position, direction)
+            break;
+        case 'kingBlack': KingMove(position, direction)
             break;
         default:
             break;

@@ -1,4 +1,5 @@
 import { BishopMove } from "./BishopMove";
+import { KingMove } from "./KingMove";
 import { KnightMove } from "./KnightMove";
 import { PawnMove_W } from "./PawnMove";
 import { QueenMove } from "./QueenMove";
@@ -15,6 +16,8 @@ export async function MovePiecesWhite(name: string | undefined, position: string
         case 'rookWhite': RookMove(position, direction)
             break;
         case 'queenWhite': QueenMove(position, direction)
+            break;
+        case 'kingWhite': KingMove(position, direction)
             break;
         default:
             break;
