@@ -1,8 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { TurnContext } from "../context/Turn";
 export function TimerWhite() {
-    const [countDown, setCountDown] = useState<number>(600);
-    const [runTimer, setRunTimer] = useState<boolean>(false);
-    const previousValue = useRef<number>(0);
+  const [countDown, setCountDown] = useState<number>(600);
+  const previousValue = useRef<number>(0);
+  const { whiteToPlay, setWhiteToPlay } = useContext(TurnContext)
+    
     let timerId : number;
 
     useEffect(() => {
@@ -10,7 +12,7 @@ export function TimerWhite() {
       }, [countDown]);
 
     useEffect(() => {
-      if (runTimer) {
+      if (whiteToPlay) {
         if (previousValue.current) {
             setCountDown(previousValue.current)
         } else {
@@ -24,30 +26,22 @@ export function TimerWhite() {
       }
   
       return () => clearInterval(timerId);
-    }, [runTimer]);
+    }, [whiteToPlay]);
   
     useEffect(() => {
-      if (countDown < 0 && runTimer) {
-        setRunTimer(false);
+      if (countDown < 0 && whiteToPlay) {
+        setWhiteToPlay(undefined);
         setCountDown(600);
       }
-    }, [countDown, runTimer]);
-  
-    const togglerTimer = () => setRunTimer((t) => !t);
+    }, [countDown, whiteToPlay]);
 
     const minutes = Math.floor(countDown / 60)
     const seconds = (countDown % 60)
     
 
     return (
-      <div>
         <div>
-          {minutes} : {seconds}
+         {minutes} : {seconds}
         </div>
-  
-        <button type="button" onClick={togglerTimer}>
-          {runTimer ? "Stop" : "Start"}
-        </button>
-      </div>
     );
   }

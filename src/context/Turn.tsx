@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useMemo } from 'react';
 
 
 interface ContextProps {
@@ -9,7 +9,7 @@ interface ContextProps {
 const TurnContext = createContext<any>({});
 
 const TurnContextProvider = ({children}: ContextProps)  => {
-    const [whiteToPlay, setWhiteToPlay] = useState<boolean>(false)
+    const [whiteToPlay, setWhiteToPlay] = useState<boolean | undefined>(false)
 
     const getTurn = () => {
         setWhiteToPlay(!whiteToPlay)
@@ -18,11 +18,11 @@ const TurnContextProvider = ({children}: ContextProps)  => {
     console.log("whiteToPlay?",whiteToPlay);
     
 
-    const value = {
+    const value = useMemo(() => ({
         whiteToPlay,
         setWhiteToPlay,
-        getTurn
-    }
+        getTurn 
+    }), [whiteToPlay]);
     
 
     return (
