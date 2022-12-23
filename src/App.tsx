@@ -4,6 +4,7 @@ import { PieceTheme } from "./PieceTheme";
 import { TurnContext } from "./context/Turn";
 import { MovePiecesWhite } from "./Move/MovePiecesWhite";
 import { MovePiecesBlack } from "./Move/MovePiecesBlack";
+import { TimerWhite } from "./Timer";
 
 
 const Y_AXE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -37,6 +38,7 @@ function App() {
   }
   return (
     <div className='flex justify-center items-center mx-10 my-5'>
+      <TimerWhite/>
       <div className='grid overflow-hidden grid-cols-8 grid-rows-8 gap-0 w-96 h-96 border-2 border-black'>
         {/* <InitialBoard /> */}
         {X_AXE.map(e =>
