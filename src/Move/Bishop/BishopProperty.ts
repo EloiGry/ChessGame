@@ -1,8 +1,7 @@
-import { PieceTheme } from "../PieceTheme"
-import Update from "../utils/UpdateBoard"
+import { PieceTheme } from "../../PieceTheme"
 
-export async function BishopMove(position: string, direction: string) {
-
+export async function BishopProperty (position : string) :Promise<string[]>  
+ {
     const split: string[] = position.split("")
     let arrayMove: string[] = []
     let element1: number = 1
@@ -109,9 +108,6 @@ export async function BishopMove(position: string, direction: string) {
         }
     }
 
-
-    if (arrayMove.includes(direction)) {
-        await Update(position, direction)
-    }
+    return arrayMove 
 
 }
