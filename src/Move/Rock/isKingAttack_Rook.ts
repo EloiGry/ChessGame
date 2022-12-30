@@ -8,14 +8,41 @@ interface Object {
     color: string
 }
 
-export async function IsKingAttack_Rook (newPosition: string, king: string) {
-    const arrayMove = await RookProperty(newPosition)
+    export async function IsKingAttack_W_Rook (king: string) {
+        let arrayMove : string[] = []
+        const filter = PieceTheme.filter(element => (element.name).includes('rookWhite'))
+    
+        for (const element of filter) {
+            const array = await RookProperty(element.position)
+            arrayMove = arrayMove.concat(array)
+          }
+        
+        const find: Object | undefined = PieceTheme.find(element => element.name === king)
 
-    const find: Object | undefined = PieceTheme.find(element => element.name === king)
+        console.log("arrayMove",arrayMove);
+        
+    
+        if (find && arrayMove.length > 0) {
+            if (arrayMove.includes(find.position)) {
+                console.log('king has to move');  
+            }
+        } 
+    }
 
-    if (find) {
-        if (arrayMove.includes(find.position)) {
-            console.log('king has to move');  
-        }
-    } 
-}
+    export async function IsKingAttack_B_Rook (king: string) {
+        let arrayMove : string[] = []
+        const filter = PieceTheme.filter(element => (element.name).includes('rookBlack'))
+    
+        for (const element of filter) {
+            const array = await RookProperty(element.position)
+            arrayMove = arrayMove.concat(array)
+          }
+        
+        const find: Object | undefined = PieceTheme.find(element => element.name === king)
+        console.log("arrayMove",arrayMove);
+        if (find && arrayMove.length > 0) {
+            if (arrayMove.includes(find.position)) {
+                console.log('KING HAS TO MOVE');  
+            }
+        } 
+    }

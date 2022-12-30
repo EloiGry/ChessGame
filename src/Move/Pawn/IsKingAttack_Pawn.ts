@@ -1,4 +1,4 @@
-import { BishopProperty } from "./BishopProperty"
+import { PawnProperty_W, PawnProperty_B } from "./PawnProperty"
 import { PieceTheme } from "../../PieceTheme"
 
 interface Object {
@@ -8,36 +8,36 @@ interface Object {
     color: string
 }
 
-export async function IsKingAttack_W_Bishop (king: string) {
+export async function IsKingAttack_W_Pawn (king: string) {
     let arrayMove : string[] = []
-    const filter = PieceTheme.filter(element => (element.name).includes('bishopWhite'))
+    const filter = PieceTheme.filter(element => (element.name).includes('pawnWhite'))
 
     for (const element of filter) {
-        const array = await BishopProperty(element.position)
-        arrayMove = arrayMove.concat(array)
+        const position = await PawnProperty_W(element.position)
+        arrayMove.push(position.newPositionTer, position.newPositionQ)
       }
     
     const find: Object | undefined = PieceTheme.find(element => element.name === king)
 
-    if (find) {
+    if (find && arrayMove.length > 0) {
         if (arrayMove.includes(find.position)) {
             console.log('king has to move');  
         }
     } 
 }
 
-export async function IsKingAttack_B_Bishop (king: string) {
+export async function IsKingAttack_B_Pawn (king: string) {
     let arrayMove : string[] = []
-    const filter = PieceTheme.filter(element => (element.name).includes('bishopBlack'))
+    const filter = PieceTheme.filter(element => (element.name).includes('pawnBlack'))
 
     for (const element of filter) {
-        const array = await BishopProperty(element.position)
-        arrayMove = arrayMove.concat(array)
+        const position = await PawnProperty_B(element.position)
+        arrayMove.push(position.newPositionTer, position.newPositionQ)
       }
     
     const find: Object | undefined = PieceTheme.find(element => element.name === king)
-      console.log("arrayMove",arrayMove);
-    if (find) {
+
+    if (find && arrayMove.length > 0) {
         if (arrayMove.includes(find.position)) {
             console.log('king has to move');  
         }
