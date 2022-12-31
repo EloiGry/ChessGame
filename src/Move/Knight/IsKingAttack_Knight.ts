@@ -21,7 +21,7 @@ export async function isKingAttack_B_Knight(king: string) {
 
     if (find) {
         if (arrayMove.includes(find.position)) {
-            console.log('king has to move');  
+            console.log('king white has to move');  
         }
     } 
 }
@@ -39,7 +39,7 @@ export async function isKingAttack_W_Knight(king: string) {
 
     if (find) {
         if (arrayMove.includes(find.position)) {
-            console.log('king has to move');  
+            console.log('king black has to move');  
         }
     } 
 }

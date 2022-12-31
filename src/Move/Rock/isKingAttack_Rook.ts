@@ -10,7 +10,7 @@ interface Object {
 
     export async function IsKingAttack_W_Rook (king: string) {
         let arrayMove : string[] = []
-        const filter = PieceTheme.filter(element => (element.name).includes('rookWhite'))
+        const filter = PieceTheme.filter(element => (element.name).includes('rookWhite') || (element.name).includes('queenWhite'))
     
         for (const element of filter) {
             const array = await RookProperty(element.position)
@@ -22,16 +22,16 @@ interface Object {
         console.log("arrayMove",arrayMove);
         
     
-        if (find && arrayMove.length > 0) {
+        if (find) {
             if (arrayMove.includes(find.position)) {
-                console.log('king has to move');  
+                console.log('king black has to move');  
             }
         } 
     }
 
     export async function IsKingAttack_B_Rook (king: string) {
         let arrayMove : string[] = []
-        const filter = PieceTheme.filter(element => (element.name).includes('rookBlack'))
+        const filter = PieceTheme.filter(element => (element.name).includes('rookBlack') || (element.name).includes('queenBlack'))
     
         for (const element of filter) {
             const array = await RookProperty(element.position)
@@ -40,9 +40,9 @@ interface Object {
         
         const find: Object | undefined = PieceTheme.find(element => element.name === king)
         console.log("arrayMove",arrayMove);
-        if (find && arrayMove.length > 0) {
+        if (find) {
             if (arrayMove.includes(find.position)) {
-                console.log('KING HAS TO MOVE');  
+                console.log('KING white HAS TO MOVE');  
             }
         } 
     }
