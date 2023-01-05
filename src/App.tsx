@@ -1,11 +1,12 @@
 import Square from "./Square"
-import { useState, useContext } from "react";
+import { useState, useCallback } from "react";
 import { PieceTheme } from "./PieceTheme";
-import { TurnContext } from "./context/Turn";
 import { MovePiecesWhite } from "./Move/MovePiecesWhite";
 import { MovePiecesBlack } from "./Move/MovePiecesBlack";
 import { TimerWhite } from "./Timer/TimerWhite";
 import { TimerBlack } from "./Timer/TimerBlack";
+import {useTurn} from "./store/store";
+
 
 
 const Y_AXE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -15,11 +16,11 @@ const X_AXE = ['1', '2', '3', '4', '5', '6', '7', '8']
 function App() {
   const [position, setPosition] = useState<string | null>(null)
   const [name, setName] = useState<string | null>(null)
-  const { whiteToPlay } = useContext(TurnContext)
+  const playWhite = useTurn(state => state.show)
 
   const handleClick = async (actualPosition: string) => {
     if (position != null && name != null) {
-      if (whiteToPlay) {
+      if (playWhite) {
         await MovePiecesWhite(name, position, actualPosition)
         setPosition(null)
         setName(null)

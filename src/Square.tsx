@@ -1,6 +1,8 @@
 import { PieceTheme } from "./PieceTheme";
-import { useContext, useEffect } from "react";
-import { TurnContext } from "./context/Turn";
+import { useEffect } from "react";
+import {useTurn} from "./store/store";
+
+
 
 interface SquareProps {
     positionSquare: string;
@@ -9,11 +11,14 @@ interface SquareProps {
 }
 
 const Square = ({positionSquare, background, onClick} : SquareProps) => {
-    const {getTurn} = useContext(TurnContext)
+    const Turn = useTurn(state => state.toggleShow)
+
     const piece = PieceTheme.find(element => element.position === positionSquare)
 
     useEffect(() => {
-      getTurn()
+        if (piece) {
+            Turn()
+        }
     }, [piece])
 
      return (

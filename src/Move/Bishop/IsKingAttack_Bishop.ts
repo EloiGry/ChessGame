@@ -27,6 +27,8 @@ export async function IsKingAttack_W_Bishop (king: string) {
 }
 
 export async function IsKingAttack_B_Bishop (king: string) {
+
+    
     let arrayMove : string[] = []
     const filter = PieceTheme.filter(element => (element.name).includes('bishopBlack') || (element.name).includes('queenBlack'))
 
@@ -36,10 +38,9 @@ export async function IsKingAttack_B_Bishop (king: string) {
       }
     
     const find: Object | undefined = PieceTheme.find(element => element.name === king)
-      console.log("arrayMove",arrayMove);
     if (find) {
         if (arrayMove.includes(find.position)) {
-            console.log('king white has to move');  
+            console.log('king white has to move'); 
         }
     } 
 }

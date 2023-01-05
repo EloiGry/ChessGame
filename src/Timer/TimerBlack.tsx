@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef, useContext } from "react";
-import { TurnContext } from "../context/Turn";
+import { useState, useEffect, useRef } from "react";
+import { useTurn } from "../store/store";
+
 export function TimerBlack() {
-    const [countDown, setCountDown] = useState<number>(600);
-    const previousValue = useRef<number>(0);
-    const { whiteToPlay, setWhiteToPlay } = useContext(TurnContext)
+  const [countDown, setCountDown] = useState<number>(600);
+  const previousValue = useRef<number>(0);
+  const playWhite = useTurn(state => state.show)
     let timerId : number;
 
     useEffect(() => {
@@ -11,7 +12,7 @@ export function TimerBlack() {
       }, [countDown]);
 
     useEffect(() => {
-      if (!whiteToPlay) {
+      if (!playWhite) {
         if (previousValue.current) {
             setCountDown(previousValue.current)
         } else {
@@ -25,14 +26,13 @@ export function TimerBlack() {
       }
   
       return () => clearInterval(timerId);
-    }, [!whiteToPlay]);
+    }, [!playWhite]);
   
     useEffect(() => {
-      if (countDown < 0 && !whiteToPlay) {
-        setWhiteToPlay(undefined);
+      if (countDown === 0 && !playWhite) {
         setCountDown(600);
       }
-    }, [countDown, whiteToPlay]);
+    }, [countDown, playWhite]);
   
     const minutes = Math.floor(countDown / 60)
     const seconds = (countDown % 60)
