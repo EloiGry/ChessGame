@@ -1,5 +1,5 @@
 import Square from "./Square"
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { PieceTheme } from "./PieceTheme";
 import { MovePiecesWhite } from "./Move/MovePiecesWhite";
 import { MovePiecesBlack } from "./Move/MovePiecesBlack";

@@ -21,7 +21,7 @@ export async function IsKingAttack_W_Pawn (king: string) {
 
     if (find && arrayMove.length > 0) {
         if (arrayMove.includes(find.position)) {
-            console.log('king has to move');  
+            return true   
         }
     } 
 }
@@ -39,7 +39,7 @@ export async function IsKingAttack_B_Pawn (king: string) {
 
     if (find && arrayMove.length > 0) {
         if (arrayMove.includes(find.position)) {
-            console.log('king has to move');  
+            return true   
         }
     } 
 }

@@ -18,13 +18,11 @@ interface Object {
           }
         
         const find: Object | undefined = PieceTheme.find(element => element.name === king)
-
-        console.log("arrayMove",arrayMove);
         
     
         if (find) {
             if (arrayMove.includes(find.position)) {
-                console.log('king black has to move');  
+                return true 
             }
         } 
     }
@@ -39,10 +37,10 @@ interface Object {
           }
         
         const find: Object | undefined = PieceTheme.find(element => element.name === king)
-        console.log("arrayMove",arrayMove);
+
         if (find) {
             if (arrayMove.includes(find.position)) {
-                console.log('KING white HAS TO MOVE');  
+                return true  
             }
         } 
     }
