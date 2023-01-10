@@ -22,7 +22,7 @@ const Square = ({positionSquare, background, onClick} : SquareProps) => {
     }, [piece])
 
      return (
-        <button className="border-2 border-black relative" style={{backgroundColor: background}} onClick={onClick} >
+        <button className="relative" style={{backgroundColor: background}} onClick={onClick} >
             {piece && <img src={piece.image} className='absolute top-0' alt={piece.name} /> }
         </button>
 

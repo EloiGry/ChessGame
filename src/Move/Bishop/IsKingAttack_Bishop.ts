@@ -10,8 +10,8 @@ interface Object {
 
 export async function IsKingAttack_W_Bishop (king: string) {
     let arrayMove : string[] = []
-    const filter = PieceTheme.filter(element => (element.name).includes('bishopWhite') || (element.name).includes('queenWhite'))
-
+    const filter = PieceTheme.filter(element => (element.name).includes('queenWhite') || (element.name).includes('bishopWhite'))
+    console.log(filter, 'attackWK');
     for (const element of filter) {
         const array = await BishopProperty(element.position)
         arrayMove = arrayMove.concat(array)
@@ -29,7 +29,9 @@ export async function IsKingAttack_W_Bishop (king: string) {
 export async function IsKingAttack_B_Bishop (king: string) {
 
     let arrayMove : string[] = []
-    const filter = PieceTheme.filter(element => (element.name).includes('bishopBlack') || (element.name).includes('queenBlack'))
+    const filter = PieceTheme.filter(element => (element.name).includes('queenBlack') || (element.name).includes('bishopBlack'))
+    console.log(filter, 'attackBlackK');
+    
 
     for (const element of filter) {
         const array = await BishopProperty(element.position)

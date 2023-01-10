@@ -40,8 +40,8 @@ export function TimerWhite() {
     
 
     return (
-        <div>
-         {minutes} : {seconds}
+        <div className="bg-gray-300 rounded font-semibold text-xl px-4 py-2 text-center m-16 w-full">
+         {minutes < 10 ? (<> {`0${minutes}`}</>) : (<> {minutes} </>)} : {seconds < 10 ? (<> {`0${seconds}`}</>) : (<> {seconds} </>)}
         </div>
     );
   }

@@ -9,6 +9,7 @@ import {useTurn} from "./store/store";
 
 
 
+
 const Y_AXE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 const X_AXE = ['1', '2', '3', '4', '5', '6', '7', '8']
 
@@ -39,19 +40,19 @@ function App() {
     }
   }
   return (
-    <div className='flex justify-center items-center mx-10 my-5'>
-      <div className="flex flex-col"> 
+    <div className='flex justify-start items-center mx-10 my-5'>
+      <div className="flex flex-col m-20 w-1/6 items-center justify-center"> 
         <TimerWhite/>
         <TimerBlack/>
       </div>
-      <div className='grid overflow-hidden grid-cols-8 grid-rows-8 gap-0 w-96 h-96 border-2 border-black'>
+      <div className='grid overflow-hidden grid-cols-8 grid-rows-8 gap-0 w-[450px] h-[450px]'>
         {/* <InitialBoard /> */}
         {X_AXE.map(e =>
           Y_AXE.map(element => {
             const bg = (element === 'a' || element === 'c' || element === 'e' || element === 'g') && Number(e) % 2 === 0 || (element === 'b' || element === 'd' || element === 'f' || element === 'h') && Number(e) % 2 !== 0
 
             return (
-              <Square positionSquare={`${element}${e}`} background={bg ? 'beige' : 'green'} onClick={() => handleClick(`${element}${e}`)} key={`${element}${e}`}/>
+              <Square positionSquare={`${element}${e}`} background={`${element}${e}` === position ? 'gray' : bg ? 'beige' : 'green'} onClick={() => handleClick(`${element}${e}`)} key={`${element}${e}`}/>
             )
           }))}
       </div>
