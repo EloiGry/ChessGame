@@ -1,6 +1,4 @@
-import Update from "../utils/UpdateBoard"
-
-export async function KingMove (position : string, direction : string) {
+export async function KingProperty (position : string) {
     const split: string[] = position.split("")
     const charCode: string = String.fromCharCode(split[0].charCodeAt(0))
     const charCode_1: string = String.fromCharCode(split[0].charCodeAt(0) + 1)
@@ -16,9 +14,5 @@ export async function KingMove (position : string, direction : string) {
     const newPosition_6: string = `${charCode_2}${num_2}`
     const newPosition_7: string = `${charCode_2}${num}`
     const newPosition_8: string = `${charCode_2}${num_1}`
-
-
-    if (newPosition_1 === direction || newPosition_2 === direction || newPosition_3 === direction || newPosition_4 === direction || newPosition_5 === direction || newPosition_6 === direction || newPosition_7 === direction || newPosition_8 === direction) {
-        await Update(position, direction)
-    }
+    return {newPosition_1, newPosition_2, newPosition_3, newPosition_4, newPosition_5, newPosition_6, newPosition_7, newPosition_8}
 }

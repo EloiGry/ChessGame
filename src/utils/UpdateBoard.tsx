@@ -39,13 +39,13 @@ const Update = async (element1 : string, element2 : string) => {
             }
         } else {
             PieceTheme[update].position = element2
-            if (await isKing_B_Attack('kingBlack') && PieceTheme[update].color === 'black') {
-                PieceTheme[update].position = element1  
+            if (PieceTheme[update].color === 'black' && await isKing_B_Attack('kingBlack')) {
                 console.log('attack')
-            }
-            else if (await isKing_W_Attack('kingWhite') && PieceTheme[update].color === 'white') {
                 PieceTheme[update].position = element1  
+            }
+            else if (PieceTheme[update].color === 'white' && await isKing_W_Attack('kingWhite')) {
                 console.log('attackW')
+                PieceTheme[update].position = element1  
             } else {
                 new Audio(pop).play()
             }
@@ -53,4 +53,5 @@ const Update = async (element1 : string, element2 : string) => {
 
 }
 export default Update
+
 

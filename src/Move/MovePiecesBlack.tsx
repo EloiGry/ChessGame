@@ -3,13 +3,13 @@ import { KnightMove } from "./Knight/KnightMove";
 import { BishopMove } from "./Bishop/BishopMove";
 import { RookMove } from "./Rock/RookMove";
 import { QueenMove } from "./Queen/QueenMove";
-import { KingMove } from "./KingMove";
+import { KingMove } from "./King/KingMove";
 
 
 
 export async function MovePiecesBlack(name: string | undefined, position: string, direction: string) {
     switch (name) {
-        case 'pawnBlack': 
+        case 'pawnBlack':
             await PawnMove_B(position, direction)
             break;
         case 'knightBlack':
@@ -24,7 +24,8 @@ export async function MovePiecesBlack(name: string | undefined, position: string
         case 'queenBlack':
             await QueenMove(position, direction)
             break;
-        case 'kingBlack': KingMove(position, direction)
+        case 'kingBlack': 
+        await KingMove(position, direction)
             break;
         default:
             break;
